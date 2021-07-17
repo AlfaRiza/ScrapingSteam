@@ -75,7 +75,10 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">{{ data.find('span', attrs={'class': 'title'}).text | safe }}</h5>
                                     <!-- Product price-->
-                                    {{ data.find('div', attrs={'class': 'col search_released responsive_secondrow'}).text | safe }}
+<!--                                    <span class="text-danger">{{ data.find('div', attrs={'class': 'col search_discount responsive_secondrow'}).text | safe }}</span>-->
+                                    <span>{{ data.find('div', attrs={'class': 'col search_price_discount_combined responsive_secondrow'}) | safe }}</span>
+                                    <br>
+                                    <span class="text-info">{{ data.find('div', attrs={'class': 'col search_released responsive_secondrow'}).text | safe }}</span>
                                 </div>
                             </div>
                             <!-- Product actions-->
