@@ -27,10 +27,13 @@ for item in new_release:
     else:
         harga = ''
     if item.find('span', attrs={'class': 'top_tag'}) != None:
-        teg = item.find('span', attrs={'class': 'top_tag'}).text
+        teg = item.findAll('div', attrs={'class': 'tab_item_details'})
+        tags = []
+        for data in teg:
+            tags.append(data.find('span', attrs={'class': 'top_tag'}).text)
     else:
         teg = ''
     file = open('steam.csv', 'a', newline='', encoding='utf-8')
     writer = csv.writer(file)
-    writer.writerow([title, harga, teg])
+    writer.writerow([title, harga, tags])
     file.close()
